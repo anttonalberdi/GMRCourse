@@ -161,3 +161,19 @@ echo "Filtering Pool${i}"
 python ${softwaredir}/DAMe/sort.py -fq ${workdir}/2-QualityFiltered/Pool${i}.fastq -p ${workdir}/0-Documents/V3-V4_primers.txt -t ${workdir}/0-Documents/V3-V4_tags.txt
 cd ${workdir}
 done
+```
+Let's examine what the `sort.py` script has created.
+```
+ls -lh ${workdir}/3-Sorted/pool1
+```
+## Filtering reads
+In order to assign sequences to samples, we need a document that established the relations between them.
+```
+cd ${workdir}/0-Documents
+cp /home/ikasle01/REPOSITORIO/metabarcoding/PSInfo_fish.txt ${workdir}/0-Documents
+ls -lh ${workdir}/0-Documents
+```
+Let's see how it looks like
+```
+head ${workdir}/0-Documents/PSInfo_fish.txt
+```
