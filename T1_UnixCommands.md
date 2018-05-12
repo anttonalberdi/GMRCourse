@@ -14,10 +14,27 @@ One server:
 
 One password per user account:
 
->**********
+> XXXXXXXXX
 
 In order to connect to the server we need a ssh agent:
 
-> Windows: Putty (https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
-> Linux: Terminal
-> Mac: Terminal/iTerm
+> - Windows: Putty (https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
+> - Linux: Terminal
+> - Mac: Terminal/iTerm
+
+And we need to stay connected to the UPV/EHU's network
+
+> - Eduroam
+> - VPN
+
+Open the terminal and type:
+
+```
+ssh ikasleXX@txinparta.lgp.ehu.es
+```
+
+Type the password
+```
+ikasleXX@txinparta.lgp.ehu.es's password:
+```
+
