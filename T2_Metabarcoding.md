@@ -74,7 +74,6 @@ AdapterRemoval --file1 /home/ikasleXX/SCRATCH/Pool1_1.fastq --file2 /home/ikasle
 #Do the same with the other two pools.
 
 #Check the output files
-
 ls -lh home/ikasleXX/SCRATCH/
 
 #Copy files back to our directory
