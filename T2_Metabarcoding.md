@@ -89,7 +89,7 @@ done
 ls -lh ${workdir}/2-QualityFiltered
 
 #Remove the scratch files
-rm home/ikasleXX/SCRATCH/Pool*
+rm /home/ikasleXX/SCRATCH/Pool*
 ```
 ## Quality checking the quality-filtered data files
 We will output the files to a new directory inside `1-Rawdata`, which needs to be created:
