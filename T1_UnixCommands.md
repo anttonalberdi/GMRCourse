@@ -37,4 +37,29 @@ Type the password
 ```
 ikasleXX@txinparta.lgp.ehu.es's password:
 ```
-
+Voilà, you are connected to the remote server
+```
+ikasleXX@nd0 ~]$:
+```
+## Basic Unix Commands
+We will first check what files and directories are in our home directory:
+```
+ls
+```
+To list the files and directories inside a child directory:
+```
+ls REPOSITORIO
+```
+If we want to move to that child directory and list the items:
+```
+cd REPOSITORIO
+ls
+```
+The `ls`command lists the files and directories, but does not provide any further information. In order to know more about the items in a given directory, we need to add arguments:
+```
+ls -l
+```
+Or even better:
+```
+ls -lh
+```
