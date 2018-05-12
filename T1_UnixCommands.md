@@ -1,15 +1,9 @@
 # Tutorial 1 - Basic Unix Commands
 ## Connecting to a remote server
-Users:
+We will run the exercises in the UPV/EHU's computation unit **Arina**.
 
--ikasle02
+http://www.ehu.eus/sgi/recursos/cluster-arina
 
--ikasle03
+We have 6 user accounts:
 
--ikasle04
-
--ikasle06
-
--ikasle07
-
--ikasle08
+>ikasle02, ikasle03, ikasle04, ikasle06, ikasle07, ikasle08
