@@ -82,13 +82,14 @@ ls -lh /home/ikasleXX/SCRATCH/
 #Copy files back to our directory
 for i in {1..3};do
 cp /home/ikasleXX/SCRATCH/Pool${i}.collapsed ${workdir}/2-QualityFiltered/Pool${i}.fastq
+echo "Pool${i} copied succesfully"
 done
 
 #Check the files have been succesfully copied
 ls -lh ${workdir}/2-QualityFiltered
 
 #Remove the scratch files
-rm home/ikasleXX/SCRATCH/*
+rm home/ikasleXX/SCRATCH/Pool*
 ```
 ## Quality checking the quality-filtered data files
 We will output the files to a new directory inside `1-Rawdata`, which needs to be created:
@@ -106,4 +107,13 @@ done
 ```
 Download the `html` files to your local computer and compare the results with the pre-quality-filtered files.
 
-
+## Get quality filtering statistics
+We can count the number of lines to calculate the percentage of filtered reads.
+```
+for i in {1..3};do
+before=$(cat 1-Rawdata/Pool${i}_1.fastq | wc -l)
+after=$(cat 2-QualityFiltered/Pool${i}.fastq | wc -l)
+perc=$((100 * after / before))
+echo "Pool $i: ${perc}% of the reads were retained after QF"
+done
+```
