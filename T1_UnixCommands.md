@@ -141,4 +141,69 @@ rm -r newdirectory
 ls -lh
 ```
 
-## Preparing 
+## Preparing the home directories for the excercises
+We will create two directories, one for each of the two excercises we will perform:
+```
+cd ${workingdir}
+mkdir metabarcoding
+mkdir metagenomics
+ls -lh
+```
+### Metabarcoding
+For metabarcoding, we will create the following directories:
+```
+cd ${workingdir}/metabarcoding
+mkdir 1-Rawdata
+mkdir 2-QualityFiltered
+mkdir 3-Sorted
+mkdir 4-Filtered
+mkdir 5-OTUs
+mkdir 6-Blast
+```
+Alternativelly, we could also create the directories from the parent directory:
+```
+cd ${workingdir}
+mkdir metabarcoding/1-Rawdata
+mkdir metabarcoding/2-QualityFiltered
+mkdir metabarcoding/3-Sorted
+mkdir metabarcoding/4-Filtered
+mkdir metabarcoding/5-OTUs
+mkdir metabarcoding/6-Blast
+```
+Or even using absolute paths:
+```
+mkdir /home/ikasleXX/metabarcoding/1-Rawdata
+mkdir /home/ikasleXX/metabarcoding/2-QualityFiltered
+mkdir /home/ikasleXX/metabarcoding/3-Sorted
+mkdir /home/ikasleXX/metabarcoding/4-Filtered
+mkdir /home/ikasleXX/metabarcoding/5-OTUs
+mkdir /home/ikasleXX/metabarcoding/6-Blast
+```
+Then we will transfer the raw data files to the `1-Rawdata` directory:
+```
+cp /home/ikasle01/REPOSITORIO/metabarcoding/Pool1_1.fastq.gz /home/ikasleXX/metabarcoding/1-Rawdata
+cp /home/ikasle01/REPOSITORIO/metabarcoding/Pool1_2.fastq.gz /home/ikasleXX/metabarcoding/1-Rawdata
+cp /home/ikasle01/REPOSITORIO/metabarcoding/Pool2_1.fastq.gz /home/ikasleXX/metabarcoding/1-Rawdata
+cp /home/ikasle01/REPOSITORIO/metabarcoding/Pool2_2.fastq.gz /home/ikasleXX/metabarcoding/1-Rawdata
+cp /home/ikasle01/REPOSITORIO/metabarcoding/Pool3_1.fastq.gz /home/ikasleXX/metabarcoding/1-Rawdata
+cp /home/ikasle01/REPOSITORIO/metabarcoding/Pool3_2.fastq.gz /home/ikasleXX/metabarcoding/1-Rawdata
+```
+Or we could do the same operation using wild cards, which is much easier and effective:
+```
+cp /home/ikasle01/REPOSITORIO/metabarcoding/* /home/ikasleXX/metabarcoding/1-Rawdata
+cp /home/ikasle01/REPOSITORIO/metabarcoding/*.gz /home/ikasleXX/metabarcoding/1-Rawdata
+cp /home/ikasle01/REPOSITORIO/metabarcoding/Pool* /home/ikasleXX/metabarcoding/1-Rawdata
+cp /home/ikasle01/REPOSITORIO/metabarcoding/Pool[1-3]_[1-2].fastq.gz /home/ikasleXX/metabarcoding/1-Rawdata
+```
+
+### Metagenomics
+For metagenomics, we will create the following directories:
+```
+cd ${workingdir}/metagenomics
+mkdir 1-Rawdata
+mkdir 2-QualityFiltered
+mkdir 3-DuplicatesRemoved
+mkdir 4-HostRemoved
+mkdir 5-HumanRemoved
+mkdir 6-Assembly
+```
