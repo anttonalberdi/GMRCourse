@@ -4,7 +4,10 @@ First, let's set the working directory
 ```
 workdir="/home/ikasleXX/metabarcoding"
 ```
-
+And the software directory (for programs not installed in root)
+```
+softwaredir="/home/ikasle01/REPOSITORIO/software"
+```
 We will start by visualizing the data files:
 ```
 cd ${workdir}/1-Rawdata
@@ -33,6 +36,17 @@ Now we can see what the files contain:
 cd ${workdir}/1-Rawdata
 head Pool1_1.fastq
 ```
+And we can count the number of reads of each file
+```
+cd ${workdir}/1-Rawdata
+grep -c "@M01168" Pool1_1.fastq
+grep -c "@M01168" Pool1_2.fastq
+grep -c "@M01168" Pool2_1.fastq
+grep -c "@M01168" Pool2_2.fastq
+grep -c "@M01168" Pool3_1.fastq
+grep -c "@M01168" Pool3_2.fastq
+```
+
 ## Quality checking the original data files
 We will use FastQC to quality-check the data files. Let's see what the help text says:
 ```
@@ -117,3 +131,33 @@ perc=$((100 * after / before))
 echo "Pool $i: ${perc}% of the reads were retained after QF"
 done
 ```
+## Sorting reads
+We will sort the reads using DAMe
+
+https://github.com/lisandracady/DAMe
+
+https://github.com/shyamsg/DAMe
+
+We need two files indicating the employed primers and tags. We will copy them from `REPOSITORIO` and store them in a new directory called `0-Documents`.
+```
+mkdir ${workdir}/0-Documents
+cd ${workdir}/0-Documents
+cp /home/ikasle01/REPOSITORIO/metabarcoding/V3-V4_primers.txt .
+cp /home/ikasle01/REPOSITORIO/metabarcoding/V3-V4_tags.txt .
+ls -lh
+```
+Let's see what the documents contain
+```
+cat V3-V4_primers.txt
+cat V3-V4_tags.txt
+```
+Now we can sort the reads. For doing so, we need to run the program from the output directory, i.e. `3-Sorted/poolX`
+```
+cd ${workdir}
+for i in {1..3}; do
+mkdir ${workdir}/3-Sorted/pool${i}
+cd ${workdir}/3-Sorted/pool${i}
+echo "Filtering Pool${i}"
+python ${softwaredir}/DAMe/sort.py -fq ${workdir}/2-QualityFiltered/Pool${i}.fastq -p ${workdir}/0-Documents/V3-V4_primers.txt -t ${workdir}/0-Documents/V3-V4_tags.txt
+cd ${workdir}
+done
