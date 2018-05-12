@@ -170,10 +170,29 @@ ls -lh ${workdir}/3-Sorted/pool1
 In order to assign sequences to samples, we need a document that established the relations between them.
 ```
 cd ${workdir}/0-Documents
-cp /home/ikasle01/REPOSITORIO/metabarcoding/PSInfo_fish.txt ${workdir}/0-Documents
+cp /home/ikasle01/REPOSITORIO/metabarcoding/PSInfo.txt ${workdir}/0-Documents
 ls -lh ${workdir}/0-Documents
 ```
 Let's see how it looks like
 ```
-head ${workdir}/0-Documents/PSInfo_fish.txt
+head ${workdir}/0-Documents/PSInfo.txt
+```
+We can now filter the reads from the three pools. We will retain the sequences that appear in at least 2 out of the 3 PCR replicates (argument `-y`), and have at least two copies (argument `-t`) in each of the replicates.
+```
+cd ${workdir}/3-Sorted
+python ${softwaredir}/DAMe/filter.py -psInfo ${workdir}/0-Documents/PSInfo.txt -x 3 -y 2 -p 3 -t 2 -l 350 -o ${workdir}/4-Filtered
+```
+This step will take a while...
+
+## OTU clustering
+Once filtered the reads and assigned to each sample, we will cluster the sequences into OTUs. For doing so, we first need to change the format of the input file.
+```
+cd ${workdir}
+${softwaredir}/DAMe/convertToUSearch.py -i ${workdir}/4-Filtered/FilteredReads.fna -lmin 380 -lmax 450 && mv ${workdir}/FilteredReads.forsumaclust.fna ${workdir}/4-Filtered/FilteredReads.forsumaclust.fna
+```
+Now we can to the actual OTU clustering using SUMACLUST
+```
+${softwaredir}/sumaclust -t 0.97 ${workdir}/4-Filtered/FilteredReads.forsumaclust.fna > ${workdir}/5-OTUs/FilteredReads.fna && python ${softwaredir}/dame2/tabulateSumaclust.py -i ${workdir}/5-OTUs/FilteredReads.fna -o ${workdir}/5-OTUs/FilteredReads.tab -blast 
+mv ${workdir}/5-OTUs/FilteredReads.tab.blast.txt ${workdir}/5-OTUs/FilteredReads_1-3.blast
+
 ```
