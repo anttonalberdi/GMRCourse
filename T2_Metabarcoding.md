@@ -2,7 +2,7 @@
 ## Uncompressing and visualizing data files
 First, let's set the working directory
 ```
-workdir="/home/ikasleXX/REPOSITORIO/metabarcoding"
+workdir="/home/ikasleXX/metabarcoding"
 ```
 
 We will start by visualizing the data files:
