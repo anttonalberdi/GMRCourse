@@ -77,10 +77,12 @@ AdapterRemoval --file1 /home/ikasleXX/SCRATCH/Pool1_1.fastq --file2 /home/ikasle
 #Do the same with the other two pools.
 
 #Check the output files
-ls -lh home/ikasleXX/SCRATCH/
+ls -lh /home/ikasleXX/SCRATCH/
 
 #Copy files back to our directory
-cp home/ikasleXX/SCRATCH/Pool1.collapsed ${workdir}/2-QualityFiltered
+for i in {1..3};do
+cp /home/ikasleXX/SCRATCH/Pool${i}.collapsed ${workdir}/2-QualityFiltered/Pool${i}.fastq
+done
 
 #Check the files have been succesfully copied
 ls -lh ${workdir}/2-QualityFiltered
@@ -88,5 +90,20 @@ ls -lh ${workdir}/2-QualityFiltered
 #Remove the scratch files
 rm home/ikasleXX/SCRATCH/*
 ```
+## Quality checking the quality-filtered data files
+We will output the files to a new directory inside `1-Rawdata`, which needs to be created:
+```
+cd ${workdir}/2-QualityFiltered
+mkdir fastqc
+ls -lh
+```
+Now we can run `fastqc`:
+```
+cd ${workdir}/2-QualityFiltered
+for i in {1..3};do
+fastqc Pool${i}.fastq -o fastqc -t 4
+done
+```
+Download the `html` files to your local computer and compare the results with the pre-quality-filtered files.
 
 
