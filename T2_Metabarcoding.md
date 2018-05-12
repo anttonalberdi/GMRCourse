@@ -46,8 +46,11 @@ ls -lh
 ```
 Now we can run `fastqc`:
 ```
-cd ${workdir}/
-fastqc 1-Rawdata/*.fastq -o 1-Rawdata/fastqc -t 4
+cd ${workdir}/1-Rawdata
+for i in {1..3};do
+fastqc Pool${i}_1.fastq -o fastqc -t 4
+fastqc Pool${i}_2.fastq -o fastqc -t 4
+done
 ```
 The `.html` output files need to be visualized in an Internet Browser, in our local computer. For transferring files from the remote server to our local computer we can use an FTP agent, e.g. FileZilla:
 
