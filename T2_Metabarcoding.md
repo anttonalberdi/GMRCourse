@@ -57,6 +57,34 @@ Connect to the server and download the files inside the directory:
 ```
 /home/ikasleXX/metabarcoding/1-Rawdata/fastqc
 ```
+## Quality-filtering and merging paired-end reads
+We will use AdapterRemoval to quality-filter and merge paired-end reads:
+```
+AdapterRemoval -h
+```
+This operation will require larger computational requirements, so we will 1) copy the data files to the computation unit, 2) run the command, and 3) copy the data files back to our directories.
+```
+#Copy files to scratch
+cd ${workdir}/
+cp 1-Rawdata/*.fastq /home/ikasleXX/SCRATCH
 
+#Run Adapter Removal
+AdapterRemoval --file1 /home/ikasleXX/SCRATCH/Pool1_1.fastq --file2 /home/ikasleXX/SCRATCH/Pool1_2.fastq --basename home/ikasleXX/SCRATCH/Pool1 --minquality 30 --minlength 300 --trimns --maxns 5 --qualitymax 60 --threads 4 --collapse
+
+#Do the same with the other two pools.
+
+#Check the output files
+
+ls -lh home/ikasleXX/SCRATCH/
+
+#Copy files back to our directory
+cp home/ikasleXX/SCRATCH/Pool1.collapsed ${workdir}/2-QualityFiltered
+
+#Check the files have been succesfully copied
+ls -lh ${workdir}/2-QualityFiltered
+
+#Remove the scratch files
+rm home/ikasleXX/SCRATCH/*
+```
 
 
