@@ -20,13 +20,13 @@ gunzip Pool1_2.fastq.gz
 Or alternatively, we can use the improved software `pigz`, which allows parallelizing:
 ```
 cd ${workdir}/1-Rawdata
-pigz -dc Pool2_1.fastq.gz > Pool2_1.fastq
-pigz -dc Pool2_2.fastq.gz > Pool2_2.fastq
+pigz -d Pool2_1.fastq.gz
+pigz -d Pool2_2.fastq.gz
 ```
 We can always use wild cards:
 ```
 cd ${workdir}/1-Rawdata
-pigz -dc Pool3_[1-2].fastq.gz
+pigz -d Pool3_[1-2].fastq.gz
 ```
 Now we can see what the files contain:
 ```
