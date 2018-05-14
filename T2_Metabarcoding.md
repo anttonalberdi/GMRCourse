@@ -225,6 +225,11 @@ scp ikasle01@txinparta.lgp.ehu.es:/home/ikasleXX/metabarcoding/6-Blast/blast.tax
 From now on, we will work in our local R. Let's start by setting the working environment and loading the working files:
 ```
 setwd("/MER/metabarcoding")
-otu.table <- read.table()
-taxonomy.table <- read.table()
-
+otu.table <- read.table("FilteredReads.tab",header=TRUE,row.names=1)
+taxonomy.table <- read.table("blast.taxonomy.txt",header=TRUE,row.names=1)
+```
+We can now check how both files look like:
+```
+head(otu.table)
+head(taxonomy.table)
+```
