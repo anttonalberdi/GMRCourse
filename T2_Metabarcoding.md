@@ -192,7 +192,7 @@ python ${softwaredir}/DAMe/convertToUSearch.py -i ${workdir}/4-Filtered/Filtered
 ```
 Now we can to the actual OTU clustering using SUMACLUST
 ```
-${softwaredir}/sumaclust -t 0.97 ${workdir}/4-Filtered/FilteredReads.forsumaclust.fna > ${workdir}/5-OTUs/FilteredReads.fna && python ${softwaredir}/dame2/tabulateSumaclust.py -i ${workdir}/5-OTUs/FilteredReads.fna -o ${workdir}/5-OTUs/FilteredReads.tab -blast 
+${softwaredir}/sumaclust/sumaclust -t 0.97 ${workdir}/4-Filtered/FilteredReads.forsumaclust.fna > ${workdir}/5-OTUs/FilteredReads.fna && python ${softwaredir}/dame2/tabulateSumaclust.py -i ${workdir}/5-OTUs/FilteredReads.fna -o ${workdir}/5-OTUs/FilteredReads.tab -blast 
 mv ${workdir}/5-OTUs/FilteredReads.tab.blast.txt ${workdir}/5-OTUs/FilteredReads_1-3.blast
 
 ```
