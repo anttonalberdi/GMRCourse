@@ -215,3 +215,16 @@ Let's check how the new file looks like:
 cd ${workdir}
 less 6-Blast/blast.tab
 ```
+Now, we will do some magic to get taxonomy from the GI numbers. 
+## Working with OTU/taxonomy tables
+We will first download the OTU and taxonomy tables to our local computers. For doing so, we can use FileZilla, or we could use scp.
+```
+scp ikasle01@txinparta.lgp.ehu.es:/home/ikasleXX/metabarcoding/5-OTUs/FilteredReads.tab /MER/metabarcoding
+scp ikasle01@txinparta.lgp.ehu.es:/home/ikasleXX/metabarcoding/6-Blast/blast.taxonomy.txt /MER/metabarcoding
+```
+From now on, we will work in our local R. Let's start by setting the working environment and loading the working files:
+```
+setwd("/MER/metabarcoding")
+otu.table <- read.table()
+taxonomy.table <- read.table()
+
