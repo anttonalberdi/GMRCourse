@@ -194,5 +194,24 @@ Now we can to the actual OTU clustering using SUMACLUST
 ```
 ${softwaredir}/sumaclust/sumaclust -t 0.97 ${workdir}/4-Filtered/FilteredReads.forsumaclust.fna > ${workdir}/5-OTUs/FilteredReads.fna && python ${softwaredir}/DAMe/tabulateSumaclust.py -i ${workdir}/5-OTUs/FilteredReads.fna -o ${workdir}/5-OTUs/FilteredReads.tab -blast 
 mv ${workdir}/5-OTUs/FilteredReads.tab.blast.txt ${workdir}/5-OTUs/FilteredReads.blast
-
+```
+Once we have the reference OTU sequences, we can assign taxonomy by aligning the sequences to reference databases.
+```
+export BLASTDB=/home/ikasle01/SCRATCH/NT
+blastn -num_threads 16 -query ${workdir}/5-OTUs/FilteredReads.blast -db sorted_nt -out ${workdir}/6-Blast/blast.txt -outfmt 11 -max_target_seqs 10 -dust no
+```
+We can check how the output file looks like:
+```
+cd ${workdir}
+less 6-Blast/blast.txt
+```
+The document contains a lot of information, but it is not easy to work with it. We can change the format and tabularaize the data:
+```
+cd ${workdir}
+blast_formatter -archive ${workdir}/6-Blast/blast.txt -outfmt '6 qacc sacc sgi pident length mismatch gapopen qstart qend sstart send evalue bitscore' -out ${workdir}/6-Blast/blast.tab
+```
+Let's check how the new file looks like:
+```
+cd ${workdir}
+less 6-Blast/blast.tab
 ```
