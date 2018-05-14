@@ -188,7 +188,7 @@ This step will take a while...
 Once filtered the reads and assigned to each sample, we will cluster the sequences into OTUs. For doing so, we first need to change the format of the input file.
 ```
 cd ${workdir}
-${softwaredir}/DAMe/convertToUSearch.py -i ${workdir}/4-Filtered/FilteredReads.fna -lmin 380 -lmax 450 && mv ${workdir}/FilteredReads.forsumaclust.fna ${workdir}/4-Filtered/FilteredReads.forsumaclust.fna
+python ${softwaredir}/DAMe/convertToUSearch.py -i ${workdir}/4-Filtered/FilteredReads.fna -lmin 380 -lmax 450 && mv ${workdir}/FilteredReads.forsumaclust.fna ${workdir}/4-Filtered/FilteredReads.forsumaclust.fna
 ```
 Now we can to the actual OTU clustering using SUMACLUST
 ```
