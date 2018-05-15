@@ -309,7 +309,7 @@ site <- as.factor(unique(taxonomy.table.melted.info$Site))
 values <- length(unique(taxonomy.table.melted.info$Taxon))
 getPalette = colorRampPalette(brewer.pal(11, "Spectral"))
 
-pdf(paste("species_barplot.pdf",sep=""), width=15,height=5)
+pdf(paste("class_barplot.pdf",sep=""), width=15,height=5)
 ggplot(taxonomy.table.melted.info, aes(x=Sample, y=Value, fill=Taxon)) + 
   geom_bar(stat="identity") +
   scale_fill_manual("legend",values=getPalette(values)) + 
