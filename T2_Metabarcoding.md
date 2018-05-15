@@ -88,7 +88,7 @@ cp 1-Rawdata/*.fastq /home/ikasleXX/SCRATCH
 #Run Adapter Removal
 AdapterRemoval --file1 /home/ikasleXX/SCRATCH/Pool1_1.fastq --file2 /home/ikasleXX/SCRATCH/Pool1_2.fastq --basename /home/ikasleXX/SCRATCH/Pool1 --minquality 30 --minlength 300 --trimns --maxns 5 --qualitymax 60 --threads 4 --collapse
 AdapterRemoval --file1 /home/ikasleXX/SCRATCH/Pool2_1.fastq --file2 /home/ikasleXX/SCRATCH/Pool2_2.fastq --basename /home/ikasleXX/SCRATCH/Pool2 --minquality 30 --minlength 300 --trimns --maxns 5 --qualitymax 60 --threads 4 --collapse
-AdapterRemoval --file1 /home/ikasleXX/SCRATCH/Pool3_1.fastq --file2 /home/ikasleXX/SCRATCH/Pool3_2.fastq --basename /home/ikasleXX/SCRATCH/Pool3--minquality 30 --minlength 300 --trimns --maxns 5 --qualitymax 60 --threads 4 --collapse
+AdapterRemoval --file1 /home/ikasleXX/SCRATCH/Pool3_1.fastq --file2 /home/ikasleXX/SCRATCH/Pool3_2.fastq --basename /home/ikasleXX/SCRATCH/Pool3 --minquality 30 --minlength 300 --trimns --maxns 5 --qualitymax 60 --threads 4 --collapse
 
 #Do the same with the other two pools.
 
