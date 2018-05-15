@@ -233,7 +233,13 @@ We can now check how both files look like:
 head(otu.table)
 head(taxonomy.table)
 ```
-Let's aggregate by taxonomic level:
+We will now filter by identity threshold
+```
+otu.sina.filtered <- otu.sina[which(otu.sina$Identity > 95),]
+nrow(otu.sina)
+nrow(otu.sina.filtered)
+```
+Let's now aggregate by taxonomic level:
 ```
 sina.phylum <- aggregate(subset(otu.sina.filtered, select = -c(Row.names, Seq, Identity, Kingdom, Phylum, Class, Order,Family,Genus)) ,by=list(otu.sina.filtered$Phylum),FUN=sum)
 rownames(sina.phylum) <- sina.phylum[,1]
