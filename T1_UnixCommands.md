@@ -207,3 +207,8 @@ mkdir 4-HostRemoved
 mkdir 5-HumanRemoved
 mkdir 6-Assembly
 ```
+Now we can transfer the raw data files to the `1-Rawdata` directory:
+```
+cp /home/ikasle01/REPOSITORIO/metagenomics/* /home/ikasleXX/metagenomics/1-Rawdata
+```
+
