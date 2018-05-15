@@ -241,7 +241,14 @@ nrow(sina.table)
 sum(is.na(blast.table$Class))
 sum(is.na(sina.table$Class))
 ```
-
+The sequencing depth of each sample is different:
+```
+colSums(subset(otu.table[,-ncol(otu.table)]))
+```
+There are different normalization strategies. Here, we will use the simplest one, TSS:
+```
+otu.table[,-ncol(otu.table)] <- round(sweep(otu.table[,-ncol(otu.table)], 2, colSums(otu.table[,-ncol(otu.table)]), FUN="/")*100,2)
+```
 It's time for merging the OTU table and the taxonomy annotation table:
 ```
 otu.sina <- merge(otu.table,sina.table,by="row.names")
