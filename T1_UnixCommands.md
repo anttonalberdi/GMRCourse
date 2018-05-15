@@ -181,19 +181,19 @@ mkdir /home/ikasleXX/metabarcoding/6-Blast
 ```
 Then we will transfer the raw data files to the `1-Rawdata` directory:
 ```
-cp /home/ikasle01/REPOSITORIO/metabarcoding/Pool1_1.fastq.gz /home/ikasleXX/metabarcoding/1-Rawdata
-cp /home/ikasle01/REPOSITORIO/metabarcoding/Pool1_2.fastq.gz /home/ikasleXX/metabarcoding/1-Rawdata
-cp /home/ikasle01/REPOSITORIO/metabarcoding/Pool2_1.fastq.gz /home/ikasleXX/metabarcoding/1-Rawdata
-cp /home/ikasle01/REPOSITORIO/metabarcoding/Pool2_2.fastq.gz /home/ikasleXX/metabarcoding/1-Rawdata
-cp /home/ikasle01/REPOSITORIO/metabarcoding/Pool3_1.fastq.gz /home/ikasleXX/metabarcoding/1-Rawdata
-cp /home/ikasle01/REPOSITORIO/metabarcoding/Pool3_2.fastq.gz /home/ikasleXX/metabarcoding/1-Rawdata
+cp /home/ikasleXX/REPOSITORIO/metabarcoding/Pool1_1.fastq.gz /home/ikasleXX/metabarcoding/1-Rawdata
+cp /home/ikasleXX/REPOSITORIO/metabarcoding/Pool1_2.fastq.gz /home/ikasleXX/metabarcoding/1-Rawdata
+cp /home/ikasleXX/REPOSITORIO/metabarcoding/Pool2_1.fastq.gz /home/ikasleXX/metabarcoding/1-Rawdata
+cp /home/ikasleXX/REPOSITORIO/metabarcoding/Pool2_2.fastq.gz /home/ikasleXX/metabarcoding/1-Rawdata
+cp /home/ikasleXX/REPOSITORIO/metabarcoding/Pool3_1.fastq.gz /home/ikasleXX/metabarcoding/1-Rawdata
+cp /home/ikasleXX/REPOSITORIO/metabarcoding/Pool3_2.fastq.gz /home/ikasleXX/metabarcoding/1-Rawdata
 ```
 Or we could do the same operation using wild cards, which is much easier and effective:
 ```
-cp /home/ikasle01/REPOSITORIO/metabarcoding/* /home/ikasleXX/metabarcoding/1-Rawdata
-cp /home/ikasle01/REPOSITORIO/metabarcoding/*.gz /home/ikasleXX/metabarcoding/1-Rawdata
-cp /home/ikasle01/REPOSITORIO/metabarcoding/Pool* /home/ikasleXX/metabarcoding/1-Rawdata
-cp /home/ikasle01/REPOSITORIO/metabarcoding/Pool[1-3]_[1-2].fastq.gz /home/ikasleXX/metabarcoding/1-Rawdata
+cp /home/ikasleXX/REPOSITORIO/metabarcoding/* /home/ikasleXX/metabarcoding/1-Rawdata
+cp /home/ikasleXX/REPOSITORIO/metabarcoding/*.gz /home/ikasleXX/metabarcoding/1-Rawdata
+cp /home/ikasleXX/REPOSITORIO/metabarcoding/Pool* /home/ikasleXX/metabarcoding/1-Rawdata
+cp /home/ikasleXX/REPOSITORIO/metabarcoding/Pool[1-3]_[1-2].fastq.gz /home/ikasleXX/metabarcoding/1-Rawdata
 ```
 
 ### Metagenomics
@@ -209,6 +209,6 @@ mkdir 6-Assembly
 ```
 Now we can transfer the raw data files to the `1-Rawdata` directory:
 ```
-cp /home/ikasle01/REPOSITORIO/metagenomics/* /home/ikasleXX/metagenomics/1-Rawdata
+cp /home/ikasleXX/REPOSITORIO/metagenomics/* /home/ikasleXX/metagenomics/1-Rawdata
 ```
 
