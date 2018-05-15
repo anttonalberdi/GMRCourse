@@ -233,7 +233,7 @@ We can now check how both files look like:
 head(otu.table)
 head(taxonomy.table)
 ```
-
+Let's aggregate by taxonomic level:
 ```
 sina.phylum <- aggregate(subset(otu.sina.filtered, select = -c(Row.names, Seq, Identity, Kingdom, Phylum, Class, Order,Family,Genus)) ,by=list(otu.sina.filtered$Phylum),FUN=sum)
 rownames(sina.phylum) <- sina.phylum[,1]
