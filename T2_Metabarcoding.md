@@ -6,7 +6,7 @@ workdir="/home/ikasleXX/metabarcoding"
 ```
 And the software directory (for programs not installed in root)
 ```
-softwaredir="/home/ikasle01/REPOSITORIO/software"
+softwaredir="/home/ikasleXX/REPOSITORIO/software"
 ```
 We will start by visualizing the data files:
 ```
