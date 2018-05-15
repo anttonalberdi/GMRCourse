@@ -278,5 +278,34 @@ Let's compare the diversity between groups:
 ```
 div <- diversity(t(sina.class))
 sample.div <- merge(sample.data,div,by.x="Sample",by.y="row.names")
-t.test(y)
+t.test(y ~ Site, data=sample.div)
+summary(aov(y ~ Species, data=sample.div))
+```
+Let's plot the differences:
+```
+boxplot(y ~ Site, data=sample.div)
+```
+We can finally create a box plot to visualize taxonomic differences:
+```
+library(ggplot2)
+library(data.table)
+library(RColorBrewer)
+
+taxonomy.table.melted <- melt(as.matrix(sina.class), variable.name = "Sample",  value.name = "Value")
+colnames(taxonomy.table.melted) <- c("Taxon","Sample","Value")
+taxonomy.table.melted.info <- merge(taxonomy.table.melted,sample.data,by="Sample")
+taxonomy.table.melted.info <- taxonomy.table.melted.info[order(taxonomy.table.melted.info$Site),]
+taxonomy.table.melted.info$Site <- as.character(taxonomy.table.melted.info$Site)
+taxonomy.table.melted.info$Site <- factor(taxonomy.table.melted.info$Site, levels=unique(taxonomy.table.melted.info$Site))
+
+site <- as.factor(unique(taxonomy.table.melted.info$Site))
+values <- length(unique(taxonomy.table.melted.info$Taxon))
+getPalette = colorRampPalette(brewer.pal(11, "Spectral"))
+
+pdf(paste("species_barplot.pdf",sep=""), width=15,height=5)
+ggplot(taxonomy.table.melted.info, aes(x=Sample, y=Value, fill=Taxon)) + 
+  geom_bar(stat="identity") +
+  scale_fill_manual("legend",values=getPalette(values)) + 
+  theme(axis.text.x = element_text(angle = 90, hjust = 1), panel.background = element_blank())
+dev.off()
 ```
