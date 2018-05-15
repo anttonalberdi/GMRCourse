@@ -233,6 +233,20 @@ We can now check how both files look like:
 head(otu.table)
 head(taxonomy.table)
 ```
+Let's get some statistics:
+```
+nrow(otu.table)
+nrow(blast.table)
+nrow(sina.table)
+sum(is.na(blast.table$Class))
+sum(is.na(sina.table$Class))
+```
+
+It's time for merging the OTU table and the taxonomy annotation table:
+```
+otu.sina <- merge(otu.table,sina.table,by="row.names")
+head(otu.sina)
+```
 We will now filter by identity threshold
 ```
 otu.sina.filtered <- otu.sina[which(otu.sina$Identity > 95),]
