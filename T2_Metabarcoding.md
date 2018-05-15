@@ -126,6 +126,7 @@ Download the `html` files to your local computer and compare the results with th
 ## Get quality filtering statistics
 We can count the number of lines to calculate the percentage of filtered reads.
 ```
+cd ${workdir}
 for i in {1..3};do
 before=$(cat 1-Rawdata/Pool${i}_1.fastq | wc -l)
 after=$(cat 2-QualityFiltered/Pool${i}.fastq | wc -l)
