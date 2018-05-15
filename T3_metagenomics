@@ -1,7 +1,0 @@
-# Metagenomics excercise
-## Uncompressing and visualizing data files
-First, let's set the working and software directories
-```
-workdir="/home/ikasleXX/metagenomics"
-softwaredir="/home/ikasle01/REPOSITORIO/software"
-```
