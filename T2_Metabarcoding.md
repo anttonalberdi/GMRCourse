@@ -233,3 +233,20 @@ We can now check how both files look like:
 head(otu.table)
 head(taxonomy.table)
 ```
+
+```
+sina.phylum <- aggregate(subset(otu.sina.filtered, select = -c(Row.names, Seq, Identity, Kingdom, Phylum, Class, Order,Family,Genus)) ,by=list(otu.sina.filtered$Phylum),FUN=sum)
+rownames(sina.phylum) <- sina.phylum[,1]
+sina.phylum <- sina.phylum[,-1]
+
+sina.class <- aggregate(subset(otu.sina.filtered, select = -c(Row.names, Seq, Identity, Kingdom, Phylum, Class, Order,Family,Genus)) ,by=list(otu.sina.filtered$Class),FUN=sum)
+rownames(sina.class) <- sina.class[,1]
+sina.class <- sina.class[,-1]
+```
+Let's compute a diversity index
+```
+install.packages("vegan")
+library(vegan)
+diversity(t(sina.class))
+```
+
