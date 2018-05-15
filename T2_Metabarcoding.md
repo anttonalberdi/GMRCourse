@@ -269,4 +269,14 @@ install.packages("vegan")
 library(vegan)
 diversity(t(sina.class))
 ```
-
+We will now introduce sample information:
+```
+sample.data <- read.csv("sample.data.csv")
+sample.data
+```
+Let's compare the diversity between groups:
+```
+div <- diversity(t(sina.class))
+sample.div <- merge(sample.data,div,by.x="Sample",by.y="row.names")
+t.test(y)
+```
