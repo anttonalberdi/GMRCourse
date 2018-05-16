@@ -145,8 +145,8 @@ We need two files indicating the employed primers and tags. We will copy them fr
 ```
 mkdir ${workdir}/0-Documents
 cd ${workdir}/0-Documents
-cp /home/ikasle01/REPOSITORIO/metabarcoding/V3-V4_primers.txt .
-cp /home/ikasle01/REPOSITORIO/metabarcoding/V3-V4_tags.txt .
+cp /home/ikasleXX/REPOSITORIO/metabarcoding/V3-V4_primers.txt .
+cp /home/ikasleXX/REPOSITORIO/metabarcoding/V3-V4_tags.txt .
 ls -lh
 ```
 Let's see what the documents contain
