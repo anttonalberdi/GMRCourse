@@ -173,7 +173,7 @@ ls -lh ${workdir}/3-Sorted/pool1
 In order to assign sequences to samples, we need a document that established the relations between them.
 ```
 cd ${workdir}/0-Documents
-cp /home/ikasle01/REPOSITORIO/metabarcoding/PSInfo.txt ${workdir}/0-Documents
+cp /home/ikasleXX/REPOSITORIO/metabarcoding/PSInfo.txt ${workdir}/0-Documents
 ls -lh ${workdir}/0-Documents
 ```
 Let's see how it looks like
